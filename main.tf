@@ -87,6 +87,8 @@ resource "aws_apprunner_service" "this" {
           vpc_connector_arn = try(egress_configuration.value.vpc_connector_arn, null)
         }
       }
+
+      ip_address_type = try(network_configuration.ip_address_type, "IPV4")
     }
   }
 
